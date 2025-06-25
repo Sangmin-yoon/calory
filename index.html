@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그래도 드시겠습니까?</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 넥슨체 폰트 -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nexon+Lv1+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <h1>🍽️ 그래도 드시겠습니까?</h1>
+            <p>사진으로 쉽게 칼로리를 측정해보세요!</p>
+        </header>
+
+        <!-- 메인 섹션 -->
+        <main class="main-content">
+            <!-- 샘플 이미지 섹션 -->
+            <section class="sample-section" id="sampleSection">
+                <h2>예시 메뉴</h2>
+                <div class="sample-grid">
+                    <div class="sample-item" data-sample="menu1">
+                        <img src="images/menu1.jpg" alt="김치찌개" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuq5gOy5mOywjOqwnDwvdGV4dD48L3N2Zz4='">
+                        <span>김치찌개</span>
+                    </div>
+                    <div class="sample-item" data-sample="menu2">
+                        <img src="images/menu2.jpg" alt="스파게티" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuyKpO2MjOqyjO2LsDwvdGV4dD48L3N2Zz4='">
+                        <span>스파게티</span>
+                    </div>
+                    <div class="sample-item" data-sample="menu3">
+                        <img src="images/menu3.jpg" alt="햄버거" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPu2VhOuyohyCjjwvdGV4dD48L3N2Zz4='">
+                        <span>햄버거</span>
+                    </div>
+                    <div class="sample-item" data-sample="menu4">
+                        <img src="images/menu4.jpg" alt="샌드위치" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuyDjOuTnOychOy5mDwvdGV4dD48L3N2Zz4='">
+                        <span>샌드위치</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 사진 업로드 섹션 -->
+            <section class="upload-section">
+                <div class="upload-container">
+                    <input type="file" id="imageInput" accept="image/*" capture="environment" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('imageInput').click()">
+                        📷 사진 촬영/업로드
+                    </button>
+                    <p class="upload-hint">음식 사진을 촬영하거나 갤러리에서 선택하세요</p>
+                </div>
+                <div class="preview-container" id="previewContainer" style="display: none;">
+                    <img id="previewImage" alt="미리보기">
+                    <button class="analyze-btn" id="analyzeBtn">🔍 칼로리 분석하기</button>
+                </div>
+            </section>
+
+            <!-- 로딩 섹션 -->
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>AI가 음식을 분석하고 있습니다...</p>
+            </section>
+
+            <!-- 결과 섹션 -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-container">
+                    <h2>📊 분석 결과</h2>
+                    <div class="food-info">
+                        <h3 id="foodName">음식명</h3>
+                        <div class="calorie-display">
+                            <span class="calorie-number" id="calorieNumber">0</span>
+                            <span class="calorie-unit">kcal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-details" id="analysisDetails">
+                        <h4>🔍 분석 과정</h4>
+                        <ul id="analysisList"></ul>
+                    </div>
+
+                    <div class="exercise-info" id="exerciseInfo">
+                        <h4>🏃‍♂️ 소모 운동량</h4>
+                        <div class="exercise-grid" id="exerciseGrid"></div>
+                    </div>
+
+                    <div class="result-actions">
+                        <button class="copy-btn" id="copyBtn">📋 결과 복사하기</button>
+                        <button class="retry-btn" id="retryBtn">🔄 다시 분석하기</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <p>© 2024 칼로리 측정기 - AI 기반 음식 분석</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript 파일들 -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
