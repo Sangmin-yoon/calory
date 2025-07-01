@@ -2,6 +2,11 @@
 let currentImageData = null;
 let currentAnalysisResult = null;
 
+// CONFIG 객체 정의 (안전한 방법)
+window.CONFIG = window.CONFIG || {
+    GEMINI_API_KEY: 'AIzaSyD1JEQmYQTl1xb4ZOtfd9YnlOx2rq4-LQM'
+};
+
 // DOM 요소들
 const imageInput = document.getElementById('imageInput');
 const previewContainer = document.getElementById('previewContainer');
@@ -164,6 +169,11 @@ function showLoadingAndAnalyze(callback) {
 // Gemini API 호출
 async function callGeminiAPI(imageData) {
     try {
+        // CONFIG 객체 체크
+        if (typeof window.CONFIG === 'undefined' || !window.CONFIG.GEMINI_API_KEY) {
+            throw new Error('API 키가 설정되지 않았습니다. config.js 파일을 확인해주세요.');
+        }
+
         const base64Data = imageData.split(',')[1];
         
         const payload = {
@@ -200,7 +210,7 @@ async function callGeminiAPI(imageData) {
             }
         };
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${CONFIG.GEMINI_API_KEY}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${window.CONFIG.GEMINI_API_KEY}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
